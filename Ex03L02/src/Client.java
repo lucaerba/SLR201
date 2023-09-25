@@ -6,8 +6,9 @@ public class Client extends Thread{
     private InetAddress address;
     private SocketAddress socketAddress;
     private int port;
+    private Philosophe philosophe;
 
-    public Client(String ip, int port){
+    public Client(String ip, int port, Philosophe p){
         if(ip.equals("localhost") || ip.equals("127.0.0.1")){
             try {
                 this.address = InetAddress.getByName("localhost");
@@ -23,6 +24,7 @@ public class Client extends Thread{
         }
 
         this.port = port;
+        this.philosophe = p;
         this.socketAddress = new InetSocketAddress(address, port);
 
     }
@@ -35,12 +37,26 @@ public class Client extends Thread{
                 IOUtilities writer = IOUtilities.forOutputStream(socket.getOutputStream());
                 IOUtilities reader = IOUtilities.forInputStream(socket.getInputStream());
 
-                String toSend = "Client" + port +"\n";
-                writer.write(toSend);
+                System.out.println(philosophe.getName() + " try eat!");
+                writer.write(philosophe.getPos() + "-" + 1 +"\n");
+                String s = reader.read();
+                if(!s.equals("OK")){
+                    continue;
+                }
 
-                System.out.println(reader.read());
+                System.out.println(philosophe.getName() + " got forks!");
+                writer.write(philosophe.getPos() + "-" + 2 +"\n");
+                s = reader.read();
+                if(!s.equals("OK")){
+                    continue;
+                }
+
+                System.out.println(philosophe.getName() + " has eaten! slurp");
+
                 writer.close();
                 reader.close();
+                philosophe.addEat();
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

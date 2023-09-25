@@ -20,11 +20,16 @@ public class Server extends Thread{
         try {
             while (true){
                 socket = serverSocket.accept();
+                IOUtilities reader = IOUtilities.forInputStream(socket.getInputStream());
+                IOUtilities writer = IOUtilities.forOutputStream(socket.getOutputStream());
 
-                socket.getOutputStream().write(1015);
-                System.out.println(socket.getInputStream().read());
+                String input = reader.read();
+                System.out.println(input);
+
+                writer.write("Hello " + input + "!\n");
+                writer.close();
+                reader.close();
             }
-
         }catch (Exception e){
 
         }

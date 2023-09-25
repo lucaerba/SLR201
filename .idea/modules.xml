@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ex01L01/Ex01L01.iml" filepath="$PROJECT_DIR$/Ex01L01/Ex01L01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ex01L02/Ex01L02.iml" filepath="$PROJECT_DIR$/Ex01L02/Ex01L02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ex02L01/Ex02L01.iml" filepath="$PROJECT_DIR$/Ex02L01/Ex02L01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ex02L02/Ex02L02.iml" filepath="$PROJECT_DIR$/Ex02L02/Ex02L02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ex03L02/Ex03L02.iml" filepath="$PROJECT_DIR$/Ex03L02/Ex03L02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Philosophes/Philosophes.iml" filepath="$PROJECT_DIR$/Philosophes/Philosophes.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SLR201.iml" filepath="$PROJECT_DIR$/.idea/SLR201.iml" />
+    </modules>
+  </component>
+</project>
