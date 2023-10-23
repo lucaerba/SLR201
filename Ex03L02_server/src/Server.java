@@ -1,7 +1,7 @@
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -20,6 +20,7 @@ public class Server extends Thread{
     }
 
     public void run(){
+        Random random = new Random();
         try {
             while (true){
                 socket = serverSocket.accept();
@@ -37,8 +38,14 @@ public class Server extends Thread{
                     pos = Integer.parseInt(matcher.group(1));
                     act = Integer.parseInt(matcher.group(2));
                 }
+
                 if(act == 1){
-                    table.tryToEat(pos);
+                    Boolean res = table.tryToEat(pos);
+                    if(!res){
+                        writer.write("KO\n"); 
+                        sleep(random.nextInt(256+1));
+                        res = table.tryToEat(pos);
+                    }
                 }
                 writer.write("OK\n");
 

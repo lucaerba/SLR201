@@ -1,0 +1,56 @@
+{
+    // Usare IntelliSense per informazioni sui possibili attributi.
+    // Al passaggio del mouse vengono visualizzate le descrizioni degli attributi esistenti.
+    // Per altre informazioni, visitare: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "SLR201_1139d3ab"
+        },
+        {
+            "type": "java",
+            "name": "HelloClient",
+            "request": "launch",
+            "mainClass": "client.HelloClient",
+            "projectName": "SLR201_1139d3ab"
+        },
+        {
+            "type": "java",
+            "name": "HelloClientGraphic",
+            "request": "launch",
+            "mainClass": "client.HelloClientGraphic",
+            "projectName": "SLR201_1139d3ab"
+        },
+        {
+            "type": "java",
+            "name": "StoreClient",
+            "request": "launch",
+            "mainClass": "client.StoreClient",
+            "projectName": "SLR201_1139d3ab"
+        },
+        {
+            "type": "java",
+            "name": "StoreManager",
+            "request": "launch",
+            "mainClass": "manager.StoreManager",
+            "projectName": "SLR201_1139d3ab"
+        },
+        {
+            "type": "java",
+            "name": "HelloServer",
+            "request": "launch",
+            "mainClass": "server.HelloServer",
+            "projectName": "SLR201_1139d3ab"
+        }
+    ]
+}

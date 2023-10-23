@@ -30,8 +30,8 @@ public class Client extends Thread{
     }
 
     public void run(){
-        while (true){
-            try {
+        try {
+            while (!Thread.currentThread().isInterrupted()){
                 socket = new Socket();
                 socket.connect(socketAddress);
                 IOUtilities writer = IOUtilities.forOutputStream(socket.getOutputStream());
@@ -41,9 +41,11 @@ public class Client extends Thread{
                 writer.write(philosophe.getPos() + "-" + 1 +"\n");
                 String s = reader.read();
                 if(!s.equals("OK")){
-                    continue;
+                    while(s.equals("KO")){
+                        System.out.println("Philosophe "+philosophe.getPos()+" back to think...");
+                        s = reader.read();
+                    }
                 }
-
                 System.out.println(philosophe.getName() + " got forks!");
                 writer.write(philosophe.getPos() + "-" + 2 +"\n");
                 s = reader.read();
@@ -56,10 +58,11 @@ public class Client extends Thread{
                 writer.close();
                 reader.close();
                 philosophe.addEat();
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            System.out.println("Philosophe "+ philosophe.getPos()+" has eaten "+philosophe.getEatenCount());
         }
     }
 }
