@@ -41,10 +41,7 @@ public class Client extends Thread{
         
             // Obtenir une référence vers l’objet distant (via le stub local)
             this.table = (TableI)registry.lookup(TABLE_SERVICE);
-        } catch (RemoteException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (NotBoundException e) {
+        } catch (RemoteException | NotBoundException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
@@ -56,9 +53,11 @@ public class Client extends Thread{
             while (!Thread.currentThread().isInterrupted()){
                 
                 System.out.println(philosophe.getName() + " try eat!");
-                while(!table.tryToEat(this.philosophe.getPos())){
-                    System.out.println("Philosophe "+philosophe.getPos()+" back to think...");
-                    sleep(random.nextInt(256+1));
+                if(!table.tryToEat(this.philosophe.getPos())) {
+                    System.out.println("Philosophe " + philosophe.getPos() + " failed, back to think...");
+                    while (!table.tryToEat(this.philosophe.getPos())) {
+                        //sleep(random.nextInt(256 + 1));
+                    }
                 }
                 System.out.println(philosophe.getName() + " got forks!");
                 table.eat(this.philosophe.getPos());
@@ -68,9 +67,7 @@ public class Client extends Thread{
                 philosophe.addEat();
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             System.out.println("Philosophe "+ philosophe.getPos()+" has eaten "+philosophe.getEatenCount());
         }

@@ -18,7 +18,7 @@ public class TableServer implements TableI {
     }
 
     public synchronized boolean tryToEat(int pos){
-        while(!forks[pos] || !forks[(pos+1)%nplaces]) {
+        if(!forks[pos] || !forks[(pos+1)%nplaces]) {
             System.out.println("Philosophe "+pos+" failed to get forks, go back thinking...");
             return false;
         }
