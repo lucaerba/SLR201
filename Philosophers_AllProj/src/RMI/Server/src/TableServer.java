@@ -1,9 +1,12 @@
 package RMI.Server.src;
 
 import static java.lang.Thread.sleep;
+
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.Arrays;
 import java.util.Random;
-
+import RMI.TableI;
 public class TableServer implements TableI {
 
     private int nplaces = 5;

@@ -1,4 +1,4 @@
-package RMI.Client.src;
+package RMI;
 
 public interface TableI extends java.rmi.Remote{
     boolean tryToEat(int pos) throws java.rmi.RemoteException;

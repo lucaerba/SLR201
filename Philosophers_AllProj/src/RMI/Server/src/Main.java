@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import RMI.TableI;
 
 public class Main {
     static int rmiPort = 49153;
@@ -18,8 +19,7 @@ public class Main {
             Registry registry = LocateRegistry.createRegistry(rmiPort);
             // Export the ‘myServer’ instance (on an anonymous port - 0)
             // Obtain the Stub of the Remote Object instance (mysrever)
-            TableI stub;
-            stub = (TableI) UnicastRemoteObject.exportObject(myServer, 0);
+            TableI stub = (TableI) UnicastRemoteObject.exportObject(myServer, rmiPort);
 
             // Register the remote service with RMI Registry under a name
             registry.rebind(TABLE_SERVICE, stub);

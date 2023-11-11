@@ -1,5 +1,6 @@
 package RMI.Client.src;
 
+import RMI.TableI;
 import java.io.IOException;
 import java.net.*;
 import java.rmi.NotBoundException;
