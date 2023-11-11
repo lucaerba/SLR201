@@ -14,7 +14,7 @@ public class TableServer implements TableI {
 
     public TableServer(){
         for (int i = 0; i < 5; i++) {
-            forks.add(false); // Initialize forks as available
+            forks.add(true); // Initialize forks as available
         }
     }
 

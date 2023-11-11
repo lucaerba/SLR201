@@ -13,11 +13,11 @@ public class Table{
 
     public Table(){
         for (int i = 0; i < 5; i++) {
-            forks.add(false); // Initialize forks as available
+            forks.add(true); // Initialize forks as available
         }
     }
 
-    public synchronized boolean tryToEat(int pos) {
+    public boolean tryToEat(int pos) {
         if (!forks.get(pos) || !forks.get((pos + 1) % nplaces)) {
             System.out.println("Philosopher " + pos + " failed to get forks, go back thinking...");
             return false;

@@ -1,10 +1,10 @@
 package RMI.Server.src;
+import RMI.TableI;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
-import RMI.TableI;
 
 public class Main {
     static int rmiPort = 49153;
