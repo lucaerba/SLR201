@@ -1,0 +1,17 @@
+package Sockets.server;
+
+public class Main {
+    public static void main(String[] args){
+        int nServers = 5;
+        Server[] servers = new Server[nServers];
+        Table t = new Table();
+
+        for(int i=0; i<nServers; i++){
+            servers[i] = new Server(49153+i, t);
+        }
+
+        for(int i=0; i<nServers; i++){
+            servers[i].start();
+        }
+    }
+}

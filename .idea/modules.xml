@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/Ex02L01/Ex02L01.iml" filepath="$PROJECT_DIR$/Ex02L01/Ex02L01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ex02L02/Ex02L02.iml" filepath="$PROJECT_DIR$/Ex02L02/Ex02L02.iml" />
       <module fileurl="file://$PROJECT_DIR$/Ex03L02/Ex03L02.iml" filepath="$PROJECT_DIR$/Ex03L02/Ex03L02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Philosophers_AllProj/Philosophers_AllProj.iml" filepath="$PROJECT_DIR$/Philosophers_AllProj/Philosophers_AllProj.iml" />
       <module fileurl="file://$PROJECT_DIR$/Philosophes/Philosophes.iml" filepath="$PROJECT_DIR$/Philosophes/Philosophes.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SLR201.iml" filepath="$PROJECT_DIR$/.idea/SLR201.iml" />
     </modules>
