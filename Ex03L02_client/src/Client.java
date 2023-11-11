@@ -26,7 +26,6 @@ public class Client extends Thread{
         this.port = port;
         this.philosophe = p;
         this.socketAddress = new InetSocketAddress(address, port);
-
     }
 
     public void run(){

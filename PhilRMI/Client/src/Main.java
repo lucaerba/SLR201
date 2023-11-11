@@ -8,7 +8,7 @@ public class Main {
 
         for (int i = 0; i < nclients; i++) {
             Philosophe p = new Philosophe("Philosophe " + i, i);
-            clients[i] = new Client("localhost", 49153 + i, p);
+            clients[i] = new Client("localhost", 49153, p);
         }
 
         for (int i = 0; i < nclients; i++) {

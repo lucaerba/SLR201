@@ -41,7 +41,7 @@ public class Server extends Thread{
 
                 if(act == 1){
                     Boolean res = table.tryToEat(pos);
-                    if(!res){
+                    while(!res){
                         writer.write("KO\n"); 
                         sleep(random.nextInt(256+1));
                         res = table.tryToEat(pos);
@@ -59,6 +59,7 @@ public class Server extends Thread{
                 }
                 if(act == 2){
                     table.eat(pos);
+                    sleep(random.nextInt(256+1));
                 }
                 writer.write("OK\n");
 
