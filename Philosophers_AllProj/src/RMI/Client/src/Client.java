@@ -9,7 +9,7 @@ import java.rmi.registry.Registry;
 import java.util.Random;
 
 public class Client extends Thread{
-    private Table table;
+    private TableI table;
     private int port;
     private InetAddress address;
     private Philosophe philosophe;
@@ -39,7 +39,7 @@ public class Client extends Thread{
             registry = LocateRegistry.getRegistry(ip, port);
         
             // Obtenir une référence vers l’objet distant (via le stub local)
-            this.table = (Table)registry.lookup(TABLE_SERVICE);
+            this.table = (TableI)registry.lookup(TABLE_SERVICE);
         } catch (RemoteException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

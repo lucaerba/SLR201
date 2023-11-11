@@ -4,7 +4,7 @@ import static java.lang.Thread.sleep;
 import java.util.Arrays;
 import java.util.Random;
 
-public class TableServer implements Table {
+public class TableServer implements TableI {
 
     private int nplaces = 5;
     private boolean[] forks = new boolean[5];

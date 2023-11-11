@@ -18,8 +18,8 @@ public class Main {
             Registry registry = LocateRegistry.createRegistry(rmiPort);
             // Export the ‘myServer’ instance (on an anonymous port - 0)
             // Obtain the Stub of the Remote Object instance (mysrever)
-            Table stub;
-            stub = (Table)UnicastRemoteObject.exportObject(myServer, 0);
+            TableI stub;
+            stub = (TableI) UnicastRemoteObject.exportObject(myServer, 0);
 
             // Register the remote service with RMI Registry under a name
             registry.rebind(TABLE_SERVICE, stub);
