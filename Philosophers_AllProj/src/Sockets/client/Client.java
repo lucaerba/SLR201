@@ -3,6 +3,7 @@ package Sockets.client;
 import java.io.IOException;
 import java.net.*;
 
+
 public class Client extends Thread{
     private Socket socket;
     private InetAddress address;

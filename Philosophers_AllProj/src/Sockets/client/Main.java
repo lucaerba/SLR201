@@ -4,13 +4,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Main {
+    public static String IP_ADDRESS = "localhost";
+
     public static void main(String[] args) {
         int nclients = 5;
         Client[] clients = new Client[nclients];
 
         for (int i = 0; i < nclients; i++) {
             Philosophe p = new Philosophe("Philosophe " + i, i);
-            clients[i] = new Client("localhost", 49153 + i, p);
+            clients[i] = new Client(IP_ADDRESS, 49153 + i, p);
         }
 
         for (int i = 0; i < nclients; i++) {
