@@ -36,11 +36,10 @@ public class Client extends Thread{
         // Obtenir une référence vers le remiregistry distant
         Registry registry;
         try {
-            registry = LocateRegistry.getRegistry("localhost", port);
+            registry = LocateRegistry.getRegistry(ip, port);
         
             // Obtenir une référence vers l’objet distant (via le stub local)
-            Table table = (Table)registry.lookup(TABLE_SERVICE);
-            this.table = table;
+            this.table = (Table)registry.lookup(TABLE_SERVICE);
         } catch (RemoteException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -69,9 +68,9 @@ public class Client extends Thread{
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }catch(InterruptedException e){
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }finally {
+        } finally {
             System.out.println("Philosophe "+ philosophe.getPos()+" has eaten "+philosophe.getEatenCount());
         }
     }

@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class Main {
-    public static String IP_ADDRESS = "localhost";
+    public static String IP_ADDRESS = "172.25.221.177";
 
     public static void main(String[] args) {
         int nclients = 5;
