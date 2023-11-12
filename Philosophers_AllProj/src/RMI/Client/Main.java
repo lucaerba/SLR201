@@ -7,6 +7,7 @@ import java.util.TimerTask;
 public class Main {
     public static String IP_ADDRESS = "192.168.1.51";
     public static int rmiPort = 49153;
+
     public static void main(String[] args) {
         int nclients = 5;
         Client[] clients = new Client[nclients];

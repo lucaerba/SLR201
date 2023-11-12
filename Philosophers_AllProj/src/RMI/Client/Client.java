@@ -54,7 +54,7 @@ public class Client extends Thread{
                 
                 System.out.println(philosophe.getName() + " try eat!");
                 if(table.tryToEat(this.philosophe.getPos())) {
-                    System.out.println("Philosophe " + philosophe.getPos() + " failed, back to think...");
+                    System.out.println("Philosophe " + philosophe.getPos() + " failed, back to think... Ill try again later");
                     while (table.tryToEat(this.philosophe.getPos())) {
                         //sleep(random.nextInt(256 + 1));
                     }
