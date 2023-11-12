@@ -1,29 +1,29 @@
 package Threads;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class Main {
+    public static int nThreads = 5;
     public static void main(String[] args){
         Table t = new Table();
-
-        Philophe p0 = new Philophe("Philosophe 0", t, 0);
-        Philophe p1 = new Philophe("Philosophe 1", t, 1);
-        Philophe p2 = new Philophe("Philosophe 2", t, 2);
-        Philophe p3 = new Philophe("Philosophe 3", t, 3);
-        Philophe p4 = new Philophe("Philosophe 4", t, 4);
-
-        p0.start();
-        p1.start();
-        p2.start();
-        p3.start();
-        p4.start();
-
-        try {
-            p0.join();
-            p1.join();
-            p2.join();
-            p3.join();
-            p4.join();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        Philophe[] ps = new Philophe[nThreads];
+        for(int i=0; i<nThreads; i++){
+            ps[i] = new Philophe("Philosophe "+i, t, i);
         }
+        for(int i=0; i<nThreads; i++){
+            ps[i].start();
+        }
+        // Schedule a task to stop the clients after 7 seconds
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                for (int i = 0; i < nThreads; i++) {
+                    ps[i].finished = true;
+                }
+                timer.cancel(); // Stop the timer
+            }
+        }, 7000L);
     }
 }
