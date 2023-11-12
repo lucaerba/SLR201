@@ -1,9 +1,9 @@
-package RMI.Server.src;
+package RMI.Server;
 
+import RMI.TableI;
 import static java.lang.Thread.sleep;
 import java.util.Arrays;
 import java.util.Random;
-import RMI.TableI;
 
 public class TableServer implements TableI {
 
@@ -18,11 +18,11 @@ public class TableServer implements TableI {
     public synchronized boolean tryToEat(int pos){
         if(!forks[pos] || !forks[(pos+1)%nplaces]) {
             System.out.println("Philosophe "+pos+" failed to get forks, go back thinking...");
-            return false;
+            return true;
         }
         forks[pos] = forks[(pos+1)%nplaces] = false;
         System.out.println("Philosophe "+pos+" got forks!!");
-        return true;
+        return false;
     }
 
     public void eat(int pos){

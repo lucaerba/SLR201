@@ -13,19 +13,15 @@ public class Table{
         Arrays.fill(forks, true);
     }
 
-    public synchronized void tryToEat(int pos){
-        while (!forks[pos] || !forks[(pos+1)%nplaces]) {
-            System.out.println("Philosophe "+pos+" thinks...");
-            try {
-                wait();
-            } catch (InterruptedException e) {
-
-            }
+    public synchronized boolean tryToEat(int pos){
+        if (!forks[pos] || !forks[(pos+1)%nplaces]) {
+            return false;
         }
         forks[pos] = forks[(pos+1)%nplaces] = false;
+        return true;
     }
 
-    public synchronized void eat(int pos) {
+    public void eat(int pos) {
         try{
             System.out.println("Philosophe "+pos+" is eating!");
             sleep(random.nextInt(256+1));
@@ -34,7 +30,5 @@ public class Table{
         }
         System.out.println("Philosophe "+pos+" finished eating!...go back thinking");
         forks[pos] = forks[(pos+1)%nplaces] = true;
-        notifyAll();
-
     }
 }

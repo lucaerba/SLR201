@@ -1,4 +1,4 @@
-package RMI.Server.src;
+package RMI.Server;
 import RMI.TableI;
 
 import java.rmi.RemoteException;

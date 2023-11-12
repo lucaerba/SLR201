@@ -1,4 +1,4 @@
-package RMI.Client.src;
+package RMI.Client;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -16,10 +16,15 @@ public class Philophe extends Thread{
     public void run(){
         while(!finished){
             System.out.println(name + " try eat!");
-            table.tryToEat(pos);
+            if(!table.tryToEat(pos)){
+                System.out.println("Philosophe "+pos+" thinks...");
+                while(!table.tryToEat(pos)){
+
+                };
+                System.out.println("Philosophe "+pos+" finally...");
+            }
             System.out.println(name + " got forks!");
             table.eat(pos);
-            System.out.println(name + " has eaten! slurp");
             eatenCount++;
         }
         System.out.println(name + " has eaten "+ eatenCount+ " times.");

@@ -1,4 +1,4 @@
-package RMI.Client.src;
+package RMI.Client;
 
 import RMI.TableI;
 import java.io.IOException;
@@ -53,9 +53,9 @@ public class Client extends Thread{
             while (!Thread.currentThread().isInterrupted()){
                 
                 System.out.println(philosophe.getName() + " try eat!");
-                if(!table.tryToEat(this.philosophe.getPos())) {
+                if(table.tryToEat(this.philosophe.getPos())) {
                     System.out.println("Philosophe " + philosophe.getPos() + " failed, back to think...");
-                    while (!table.tryToEat(this.philosophe.getPos())) {
+                    while (table.tryToEat(this.philosophe.getPos())) {
                         //sleep(random.nextInt(256 + 1));
                     }
                 }

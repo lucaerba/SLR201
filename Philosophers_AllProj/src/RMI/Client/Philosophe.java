@@ -1,4 +1,4 @@
-package RMI.Client.src;
+package RMI.Client;
 
 public class Philosophe{
     private String name = null;

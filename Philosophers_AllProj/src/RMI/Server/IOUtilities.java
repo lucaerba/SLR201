@@ -1,4 +1,4 @@
-package RMI.Client.src;
+package RMI.Server;
 
 import java.io.*;
 
